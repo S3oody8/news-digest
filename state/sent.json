@@ -1,1 +1,81 @@
-{"sent": []}
+{
+  "sent": [
+    {
+      "ts": 1795522854,
+      "mode": "digest",
+      "url": "247wallst.com/investing/2026/11/24/the-sp-500-just-had-the-second-biggest-point-gain-in-its-history",
+      "headline": "nvidia soars 31 as huang returns nasdaq jumps 65",
+      "title": "Nvidia soars 31% as Huang returns; Nasdaq jumps 6.5%"
+    },
+    {
+      "ts": 1795522856,
+      "mode": "digest",
+      "url": "euronews.com/2026/11/24/iran-orders-hormuz-closed-further-day-by-day-as-qatar-seeks-to-revive-peace-talks",
+      "headline": "iran says three tankers hit mines in hormuz despite us escort",
+      "title": "Iran says three tankers hit mines in Hormuz despite US escort"
+    },
+    {
+      "ts": 1795522857,
+      "mode": "digest",
+      "url": "cnbc.com/2026/11/24/iran-trump-hormuz-crude-.html",
+      "headline": "brent slips to 89 as investors look past hormuz tanker attacks",
+      "title": "Brent slips to $89 as investors look past Hormuz tanker attacks"
+    },
+    {
+      "ts": 1795522860,
+      "mode": "digest",
+      "url": "abcnews.com/International/ukrainian-naval-drones-sank-russias-merkury-warship-libya/story",
+      "headline": "ukraine sinks russian corvette merkury in libyas benghazi port",
+      "title": "Ukraine sinks Russian corvette Merkury in Libya's Benghazi port"
+    },
+    {
+      "ts": 1795522861,
+      "mode": "digest",
+      "url": "investing.com/news/stock-market-news/anthropic-launches-claude-ship-to-help-developers-ship-code-faster-5046300",
+      "headline": "anthropic launches claude ship to review fix and approve pull requests",
+      "title": "Anthropic launches Claude Ship to review, fix and approve pull requests"
+    },
+    {
+      "ts": 1795522864,
+      "mode": "digest",
+      "url": "gulfnews.com/living-in-uae/ask-us/uae-online-shopping-rules-your-rights-when-buying-from-third-party-sellers-1.500759167",
+      "headline": "uae extends marketplace liability for thirdparty sellers under cabinet decision 166",
+      "title": "UAE extends marketplace liability for third-party sellers under Cabinet Decision 166"
+    },
+    {
+      "ts": 1795522866,
+      "mode": "digest",
+      "url": "gulfnews.com/world/mena/middle-east-conflict-us-investigates-iran-over-cyberattacks-on-50-ships-as-fresh-sanctions-target-irans-shadow-banking-network-1.500758688",
+      "headline": "israel approves resuming flydubai flights as gulf tensions rise",
+      "title": "Israel approves resuming flydubai flights as Gulf tensions rise"
+    },
+    {
+      "ts": 1795522868,
+      "mode": "digest",
+      "url": "euromaidanpress.com/2026/11/24/zelenskyy-says-ukraine-needs-more-f-16s-and-will-need-more-gripens-to-counter-russias-jet-powered-shaheds",
+      "headline": "ukraine asks for 40 more fighter jets to counter jetpowered shaheds",
+      "title": "Ukraine asks for 40 more fighter jets to counter jet-powered Shaheds"
+    },
+    {
+      "ts": 1795522870,
+      "mode": "digest",
+      "url": "gulfnews.com/world/mena/middle-east-conflict-us-investigates-iran-over-cyberattacks-on-50-ships-as-fresh-sanctions-target-irans-shadow-banking-network-1.500758688",
+      "headline": "us probes iran over cyberattacks on up to 50 commercial ships",
+      "title": "US probes Iran over cyberattacks on up to 50 commercial ships"
+    },
+    {
+      "ts": 1795522872,
+      "mode": "digest",
+      "url": "gulfnews.com/sport/by-the-numbers-the-best-stats-from-match-week-11-in-the-epl-1.500757892",
+      "headline": "arsenals 21game league run without a draw ends at newcastle",
+      "title": "Arsenal's 21-game league run without a draw ends at Newcastle"
+    },
+    {
+      "ts": 1795522874,
+      "mode": "digest",
+      "url": "skysports.com/football/news/13615837/man-utd-transfer-news-brentford-defender-nathan-collins-emerges-as-january-target-paper-talk",
+      "headline": "man utd eye brentfords nathan collins with under 50m for january",
+      "title": "Man Utd eye Brentford's Nathan Collins with under £50m for January"
+    }
+  ]
+}
