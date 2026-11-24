@@ -1,0 +1,48 @@
+name: Breaking news check
+
+on:
+  schedule:
+    # Every 2 hours at :20, from 06:20 to 00:20 Dubai (02:20-20:20 UTC, even hours).
+    # Quiet overnight to save cost. For 24/7 use: "20 */2 * * *"
+    - cron: "20 2-20/2 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-state
+  cancel-in-progress: false
+
+jobs:
+  breaking:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Check for breaking news
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NEWS_MODEL: ${{ vars.BREAKING_MODEL || 'haiku' }}
+        run: python3 scripts/run.py breaking
+
+      - name: Save sent log
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/sent.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update sent log (breaking)"
+          git pull --rebase
+          git push

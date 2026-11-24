@@ -1,0 +1,48 @@
+name: Morning digest
+
+on:
+  schedule:
+    # 03:45 UTC = 07:45 Dubai. GitHub often starts scheduled runs 5-15 min late,
+    # and a digest takes a few minutes to build, so it lands around 8 AM.
+    - cron: "45 3 * * *"
+  workflow_dispatch: {}   # adds a "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write         # lets the job save state/sent.json back to the repo
+
+concurrency:
+  group: news-state       # digest and breaking never edit the sent log at the same time
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Build and send digest
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NEWS_MODEL: ${{ vars.NEWS_MODEL || 'sonnet' }}
+        run: python3 scripts/run.py digest
+
+      - name: Save sent log
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/sent.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update sent log (digest)"
+          git pull --rebase
+          git push
